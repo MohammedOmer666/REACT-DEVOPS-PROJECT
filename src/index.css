@@ -1,0 +1,58 @@
+body {
+  font-family: sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.form input {
+  flex: 1 1 45%;
+  padding: 10px;
+}
+
+.form button {
+  flex: 1 1 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  background: #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.user-list button {
+  margin-left: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
