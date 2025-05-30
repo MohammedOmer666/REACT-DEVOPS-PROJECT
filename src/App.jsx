@@ -66,7 +66,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>REACT TO DO APP</h1>
+      <h1>umer app</h1>
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
