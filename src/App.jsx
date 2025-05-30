@@ -1,24 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-
-import React, { useEffect } from 'react';
+// src/App.jsx
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
 export default function App() {
   const [users, setUsers] = useState([]);
   const [formData, setFormData] = useState({ name: '', email: '' });
   const [editingId, setEditingId] = useState(null);
 
-  // Fetch existing users
+  // Fetch users
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users?_limit=5')
       .then((res) => res.json())
       .then(setUsers);
   }, []);
 
-  // Handle form input
+  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -27,7 +23,6 @@ export default function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (editingId) {
-      // Update user
       const res = await fetch(`https://jsonplaceholder.typicode.com/users/${editingId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -37,14 +32,13 @@ export default function App() {
       setUsers(users.map(u => (u.id === editingId ? updatedUser : u)));
       setEditingId(null);
     } else {
-      // Add user
       const res = await fetch('https://jsonplaceholder.typicode.com/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
       const newUser = await res.json();
-      newUser.id = Date.now(); // since JSONPlaceholder doesn’t return unique IDs
+      newUser.id = Date.now(); // Fake ID
       setUsers([...users, newUser]);
     }
     setFormData({ name: '', email: '' });
@@ -66,7 +60,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>umer app</h1>
+      <h1>User Manager</h1>
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
