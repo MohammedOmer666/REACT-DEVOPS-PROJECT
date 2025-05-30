@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://MohammedOmer666.github.io/react-devops-project/"
+  "homepage": "https://MohammedOmer666.github.io/react-devops-project/",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
